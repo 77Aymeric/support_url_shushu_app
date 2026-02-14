@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShuShu - Apprenez à compter en chinois</title>
-    <meta name="description" content="Support, documentation et FAQ pour l'application ShuShu.">
+    <title>ShuShu - Learn to count in Chinese</title>
+    <meta name="description" content="Support, documentation, and FAQ for the ShuShu app.">
     <link rel="icon" type="image/png" href="assets/logo.png">
 
     <!-- Google Fonts for a more premium feel -->
@@ -169,6 +169,7 @@
         .nav-links {
             display: flex;
             gap: 32px;
+            align-items: center;
         }
 
         .nav-links a {
@@ -195,6 +196,19 @@
             transform: translateY(-1px);
             background: var(--primary-dark);
             box-shadow: 0 6px 16px rgba(225, 29, 72, 0.4);
+        }
+
+        /* Language Selector */
+        #language-selector {
+            padding: 6px 10px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background-color: var(--bg-secondary);
+            color: var(--text-main);
+            font-size: 0.9rem;
+            margin-left: 10px;
+            cursor: pointer;
+            outline: none;
         }
 
         /* Hero */
@@ -460,11 +474,17 @@
                 ShuShu
             </a>
             <nav class="nav-links">
-                <a href="#features">Fonctionnalités</a>
-                <a href="#documentation">Documentation</a>
-                <a href="#faq">FAQ</a>
+                <a href="#features" data-i18n="nav.features">Features</a>
+                <a href="#documentation" data-i18n="nav.documentation">Documentation</a>
+                <a href="#faq" data-i18n="nav.faq">FAQ</a>
+                <!-- Language Selector -->
+                <select id="language-selector">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="es">🇪🇸 Español</option>
+                </select>
             </nav>
-            <a href="mailto:aymericletellierpro@gmail.com" class="cta-button">Contact</a>
+            <a href="mailto:aymericletellierpro@gmail.com" class="cta-button" data-i18n="nav.contact">Contact</a>
         </div>
     </header>
 
@@ -472,13 +492,13 @@
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <h1>Apprenez le chinois <br><span>en comptant</span></h1>
-                <p>Maîtrisez les nombres en chinois de 0 à 99 999 avec ShuShu. Une méthode ludique, progressive et
-                    incroyablement addictive.</p>
+                <h1 data-i18n="hero.title">Learn Chinese <br><span>by counting</span></h1>
+                <p data-i18n="hero.description">Master Chinese numbers from 0 to 99,999 with ShuShu. A fun, progressive,
+                    and incredibly addictive method.</p>
                 <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-                    <a href="#documentation" class="cta-button">Découvrir les cours</a>
-                    <a href="#faq" style="padding: 10px 24px; font-weight: 600; color: var(--text-main);">En savoir plus
-                        →</a>
+                    <a href="#documentation" class="cta-button" data-i18n="hero.ctaCourses">Discover Courses</a>
+                    <a href="#faq" style="padding: 10px 24px; font-weight: 600; color: var(--text-main);"
+                        data-i18n="hero.ctaMore">Learn More →</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -490,56 +510,56 @@
     <!-- Documentation Section -->
     <section class="section" id="documentation" style="background-color: var(--bg-secondary);">
         <div class="container">
-            <h2 class="section-title">Documentation & Modes de Jeu</h2>
-            <p class="section-subtitle">Tout ce que vous devez savoir pour progresser dans ShuShu.</p>
+            <h2 class="section-title" data-i18n="doc.title">Documentation & Game Modes</h2>
+            <p class="section-subtitle" data-i18n="doc.subtitle">Everything you need to know to progress in ShuShu.</p>
 
             <div class="grid-cards">
                 <!-- Modes d'entrainement -->
                 <div class="card">
-                    <span class="badge">Entraînement</span>
-                    <h3>Lecture & Construction</h3>
-                    <p>En mode <strong>Lecture</strong>, traduisez les Hanzi en chiffres arabes. En mode
-                        <strong>Construction</strong>, faites l'inverse pour assimiler la structure des nombres.
+                    <span class="badge" data-i18n="doc.cards.training.badge">Training</span>
+                    <h3 data-i18n="doc.cards.training.title">Reading & Construction</h3>
+                    <p data-i18n="doc.cards.training.text">In <strong>Reading</strong> mode, translate Hanzi to Arabic
+                        numerals. In <strong>Construction</strong> mode, do the reverse to assimilate number structure.
                     </p>
                 </div>
 
                 <div class="card">
-                    <span class="badge">Audio</span>
-                    <h3>Écoute & Dictée</h3>
-                    <p>Améliorez votre oreille avec le mode <strong>Écoute</strong>. Osez parler avec le mode
-                        <strong>Dictée</strong> qui utilise la reconnaissance vocale pour valider votre prononciation.
-                    </p>
+                    <span class="badge" data-i18n="doc.cards.audio.badge">Audio</span>
+                    <h3 data-i18n="doc.cards.audio.title">Listening & Dictation</h3>
+                    <p data-i18n="doc.cards.audio.text">Improve your ear with <strong>Listening</strong> mode. Dare to
+                        speak with <strong>Dictation</strong> mode using voice recognition to validate your
+                        pronunciation.</p>
                 </div>
 
                 <div class="card">
-                    <span class="badge">Arcade</span>
-                    <h3>Timer & Survie</h3>
-                    <p>Challengez-vous ! Le mode <strong>Timer</strong> vous donne 60s pour faire un max de points. Le
-                        mode <strong>Survie</strong> ne pardonne aucune erreur (3 vies).</p>
+                    <span class="badge" data-i18n="doc.cards.arcade.badge">Arcade</span>
+                    <h3 data-i18n="doc.cards.arcade.title">Timer & Survival</h3>
+                    <p data-i18n="doc.cards.arcade.text">Challenge yourself! <strong>Timer</strong> mode gives you 60s
+                        to score max points. <strong>Survival</strong> mode forgives no errors (3 lives).</p>
                 </div>
 
                 <!-- Cours -->
                 <div class="card">
                     <div class="card-icon">📚</div>
-                    <h3>Cours Progressifs</h3>
-                    <p>Des chapitres structurés pour apprendre les bases, les dizaines, centaines, milliers et le fameux
-                        Wan (10 000). Chaque règle est expliquée avec des exemples audio.</p>
+                    <h3 data-i18n="doc.cards.courses.title">Progressive Courses</h3>
+                    <p data-i18n="doc.cards.courses.text">Structured chapters to learn basics, tens, hundreds,
+                        thousands, and the famous Wan (10,000). Each rule explained with audio examples.</p>
                 </div>
 
                 <!-- Progression -->
                 <div class="card">
                     <div class="card-icon">📈</div>
-                    <h3>Suivi de Progression</h3>
-                    <p>Analysez votre précision, votre score global et identifiez vos "points faibles" pour lancer des
-                        sessions d'entraînement ciblées.</p>
+                    <h3 data-i18n="doc.cards.progress.title">Progress Tracking</h3>
+                    <p data-i18n="doc.cards.progress.text">Analyze your accuracy, global score, and identify 'weak
+                        points' to launch targeted training sessions.</p>
                 </div>
 
                 <!-- Streak -->
                 <div class="card">
                     <div class="card-icon">🔥</div>
-                    <h3>Streak & Régularité</h3>
-                    <p>Maintenez votre flamme en pratiquant tous les jours. Fixez votre objectif quotidien et débloquez
-                        des tenues pour votre Panda.</p>
+                    <h3 data-i18n="doc.cards.streak.title">Streak & Consistency</h3>
+                    <p data-i18n="doc.cards.streak.text">Keep your streak alive by practicing daily. Set your daily goal
+                        and unlock outfits for your Panda.</p>
                 </div>
             </div>
         </div>
@@ -548,46 +568,47 @@
     <!-- FAQ Section -->
     <section class="section" id="faq">
         <div class="container">
-            <h2 class="section-title">Questions Fréquentes</h2>
-            <p class="section-subtitle">Des réponses claires pour vous aider.</p>
+            <h2 class="section-title" data-i18n="faq.title">Frequently Asked Questions</h2>
+            <p class="section-subtitle" data-i18n="faq.subtitle">Clear answers to help you.</p>
 
             <div class="faq-grid">
                 <details class="faq-item">
-                    <summary class="faq-question">L'application est-elle gratuite ?</summary>
-                    <div class="faq-answer">Oui, l'application est entièrement gratuite pour le moment. Profitez de tous
-                        les modes de jeu sans limite !</div>
+                    <summary class="faq-question" data-i18n="faq.q1">Is the app free?</summary>
+                    <div class="faq-answer" data-i18n="faq.a1">Yes, the app is entirely free for now. Enjoy all game
+                        modes without limits!</div>
                 </details>
 
                 <details class="faq-item">
-                    <summary class="faq-question">À qui s'adresse ShuShu ?</summary>
-                    <div class="faq-answer">ShuShu est idéale pour les débutants et niveaux intermédiaires qui
-                        souhaitent automatiser leur lecture et compréhension des nombres chinois, une compétence
-                        fondamentale souvent négligée.</div>
+                    <summary class="faq-question" data-i18n="faq.q2">Who is ShuShu for?</summary>
+                    <div class="faq-answer" data-i18n="faq.a2">ShuShu is ideal for beginners and intermediate levels
+                        wishing to automate reading and understanding Chinese numbers, a fundamental skill often
+                        overlooked.</div>
                 </details>
 
                 <details class="faq-item">
-                    <summary class="faq-question">J'ai un problème avec la reconnaissance vocale.</summary>
-                    <div class="faq-answer">Assurez-vous d'être dans un environnement calme et d'avoir autorisé l'accès
-                        au micro. La qualité dépend aussi du moteur vocal de votre téléphone.</div>
+                    <summary class="faq-question" data-i18n="faq.q3">I have a problem with voice recognition.</summary>
+                    <div class="faq-answer" data-i18n="faq.a3">Ensure you are in a quiet environment and have granted
+                        microphone access. Quality also depends on your phone's speech engine.</div>
                 </details>
 
                 <details class="faq-item">
-                    <summary class="faq-question">Puis-je utiliser l'application hors ligne ?</summary>
-                    <div class="faq-answer">Oui, la majorité des fonctionnalités (Lecture, Construction, Cours) sont
-                        accessibles sans connexion internet.</div>
+                    <summary class="faq-question" data-i18n="faq.q4">Can I use the app offline?</summary>
+                    <div class="faq-answer" data-i18n="faq.a4">Yes, most features (Reading, Construction, Courses) are
+                        accessible without an internet connection.</div>
                 </details>
 
                 <details class="faq-item">
-                    <summary class="faq-question">Comment sauvegarder ma progression ?</summary>
-                    <div class="faq-answer">Votre progression est sauvegardée localement sur votre appareil. Nous ne
-                        collectons pas vos données personnelles sans votre consentement explicite.</div>
+                    <summary class="faq-question" data-i18n="faq.q5">How do I save my progress?</summary>
+                    <div class="faq-answer" data-i18n="faq.a5">Your progress is saved locally on your device. We do not
+                        collect personal data without your explicit consent.</div>
                 </details>
             </div>
 
             <div class="contact-box">
-                <h2>Vous ne trouvez pas votre réponse ?</h2>
-                <p>Notre équipe est là pour vous aider personnellement.</p>
-                <a href="mailto:aymericletellierpro@gmail.com" class="white-btn">Nous Contacter</a>
+                <h2 data-i18n="contact.title">Can't find your answer?</h2>
+                <p data-i18n="contact.text">Our team is here to help you personally.</p>
+                <a href="mailto:aymericletellierpro@gmail.com" class="white-btn" data-i18n="contact.button">Contact
+                    Us</a>
             </div>
         </div>
     </section>
@@ -595,9 +616,12 @@
     <footer>
         <div class="container"
             style="text-align: center; color: var(--text-light); padding: 40px 0; font-size: 0.9rem;">
-            <p>&copy; 2026 ShuShu. Fait avec ❤️ pour l'apprentissage du chinois.</p>
+            <p data-i18n="footer">&copy; 2026 ShuShu. Made with ❤️ for learning Chinese.</p>
         </div>
     </footer>
+
+    <!-- i18n Script -->
+    <script src="assets/js/i18n.js"></script>
 
 </body>
 
